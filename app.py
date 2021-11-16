@@ -10,11 +10,12 @@ from resources.item import  Item, ItemList
 from resources.store import Store, StoreList
 
 app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] =  'sqlite:///data.db'
+
 db_url = os.getenv("DATABASE_URL")
 if db_url.startswith("postgres://"):
     db_url = db_url.replace("postgres://", "postgresql://", 1)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(db_url, 'sqlite:///data.db')
+
 # This only changes extensions behaviours not sqlalchemy behaviours
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "jose"
