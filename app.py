@@ -11,7 +11,8 @@ from resources.store import Store, StoreList
 
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] =  'sqlite:///data.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 # This only changes extensions behaviours not sqlalchemy behaviours
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "jose"
