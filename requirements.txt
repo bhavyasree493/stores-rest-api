@@ -3,5 +3,4 @@ Flask-RESTful
 Flask-JWT
 Flask-SQLAlchemy
 uwsgi
-# psycopg2 is a popular python library to interact with postgres
 psycopg2
