@@ -14,7 +14,8 @@ app = Flask(__name__)
 db_url = os.getenv("DATABASE_URL")
 if db_url.startswith("postgres://"):
     db_url = db_url.replace("postgres://", "postgresql://", 1)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(db_url, 'sqlite:///data.db')
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(db_url, 'sqlite:///data.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 
 # This only changes extensions behaviours not sqlalchemy behaviours
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
